@@ -22,7 +22,7 @@ const Navigation = () => {
 
   return (
     <>
-        <Navbar expand='lg' className='navbarContainer bg-transparent'>
+        <Navbar expand='lg' className='navbarContainer'>
             <Navbar.Brand as={Link} to='/'>
               <img
                 src={logo}

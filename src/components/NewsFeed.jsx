@@ -3,7 +3,7 @@ import { useGetScienceArticlesQuery } from '../features/news/scienceNewsApi.js';
 import { useGetSpaceArticlesQuery } from '../features/news/spaceNewsApi.js';
 import { getToken } from '../utils/tokenService.js';
 import { useNavigate } from 'react-router-dom';
-import '../styles/news.css';
+import '../styles/feeds.css';
 
 const NewsFeed = () => {
   // state declarations
@@ -25,7 +25,7 @@ const NewsFeed = () => {
     data: scienceData,
     isLoading: loadingScience,
     error: errorScience,
-  } = useGetScienceArticlesQuery({ page, pageSize: 40 });
+  } = useGetScienceArticlesQuery({ page, pageSize: 60 });
 
   const {
     data: spaceData,
@@ -78,6 +78,7 @@ const NewsFeed = () => {
 
   // filtering
   const topics = [
+    'andromeda',
     'antineutrino',
     'antineutrinos',
     'antimatter',
@@ -170,12 +171,15 @@ const NewsFeed = () => {
     'career',
     'CEO',
     'cloudflare',
+    'comic',
+    'comics',
     'condo',
     'Cogent',
     'combat',
     'comedian',
     'comedians',
     'crypto',
+    'discount',
     'disease',
     'elon',
     'episode',
@@ -191,6 +195,7 @@ const NewsFeed = () => {
     'killed',
     'kitchen',
     'lego',
+    'lion',
     'loan',
     'market',
     'marketing',
@@ -202,11 +207,15 @@ const NewsFeed = () => {
     'pepe',
     'phone',
     'plot',
+    'pricing',
     'prime',
     'projector',
     'python',
     'Re:',
     'realty',
+    'retail',
+    'reviewers',
+    'sandbox',
     'screen',
     'shoot',
     'singer',
@@ -220,6 +229,7 @@ const NewsFeed = () => {
     'stocks',
     'street',
     'superman',
+    'trends',
     'trailer',
     'wallet',
     'workspace',
@@ -235,7 +245,6 @@ const NewsFeed = () => {
     return true;
   });
 
-  console.log('Unique articles (no duplicates):', uniqueArticles.length);
 
   // helper function
   function escapeRegExp(string) {
@@ -286,11 +295,6 @@ const NewsFeed = () => {
             <div
               className='articleDescription'
               key={index}
-              // style={{
-              //   marginBottom: '2rem',
-              //   borderBottom: '1px solid #ccc',
-              //   paddingBottom: '2rem',
-              // }}
             >
               <div className='articleTitle'>{article.title}</div>
               {article.urlToImage && (
@@ -305,7 +309,7 @@ const NewsFeed = () => {
 
               {/* {hasToken ? (*/}
               <a href={article.url} target='_blank' rel='noopener noreferrer'>
-                <button onClick={() => handleArticleDetail(article.url)}>Read full article</button>
+                <button onClick={() => handleArticleDetail(article.url)} className="feedButton">Read full article</button>
               </a>
               {/*  ) : (
                 <p>Register or Log in to read this article</p>
@@ -314,7 +318,7 @@ const NewsFeed = () => {
           ))}
 
           {hasMore && (
-            <button onClick={handleLoadMore}>load more articles</button>
+            <button onClick={handleLoadMore} className="feedButton">load more articles</button>
           )}
         </div>
       </div>
