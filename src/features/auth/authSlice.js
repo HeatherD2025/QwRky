@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { userApi } from "../user/userApi";
+import { userApi } from "../user/userApi.js";
 import * as jwtDecode from "jwt-decode";
-import { setToken, getToken, removeToken } from "../../utils/tokenService";
+import { setToken, getToken, removeToken } from "../../utils/tokenService.js";
 
-const tokenFromStorage = getToken();
+// CREATE AN APPLY AUTH PAYLOAD FUNCTION HERE - D.R.Y. 
 
 export const initializeAuth = createAsyncThunk(
   "auth/initializeAuth",

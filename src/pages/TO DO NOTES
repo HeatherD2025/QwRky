@@ -5,3 +5,13 @@ allow users to like articles, save articles
 look into using httpOnly cookies instead of localStorage (not required, but recommended in sensitive apps)
 
 Use a refresh token rotation strategy on the backend if not already
+
+logout logic - remember to clear server side and redux as fallback:
+
+const [logoutUser] = useLogoutMutation();
+const dispatch = useDispatch();
+
+const handleLogout = async () => {
+  await logoutUser();   
+  dispatch(logout());       
+}

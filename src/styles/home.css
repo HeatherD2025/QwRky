@@ -1,18 +1,41 @@
+.animated-gradient {
+  background: linear-gradient(-45deg, #33052e, #1d0231, #150745, #0d015a);
+  background-size: 400% 400%; /* Make the background larger than the element */
+  animation: gradient-animation 15s ease infinite;
+  height: 100%;
+  width: 100%;
+  padding-top: 10rem;
+  margin: -10rem 0rem 0rem 0rem;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%; /* Start position */
+  }
+  50% {
+    background-position: 100% 50%; /* Middle position */
+  }
+  100% {
+    background-position: 0% 50%; /* Return to start */
+  }
+}
+
 div.articleDescription, p {
   font-family: Arial, Helvetica, sans-serif;
+  color: white;
   margin-bottom: '2rem';
   border-bottom: '1px solid #ccc';
   padding-bottom: '2rem';
   display: flex;
   flex-wrap: wrap;
-  max-width: 500em;
+  max-width: 80rem;
   flex-direction: column;
   align-items: center;
   align-content: center;
 }
 
 .articleImage {
-  width: 75%;
+  width: 80rem;
 }
 
 .newsfeedHeader {
@@ -27,5 +50,5 @@ div.articleDescription, p {
   background-color: gray;
   display: flex;
   align-items: center;
-  margin-top: 10em;
+  padding-top: 10em;
 }

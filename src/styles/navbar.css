@@ -1,0 +1,18 @@
+.quarkyLogo {
+  margin-left: 2rem;
+  height: 6rem;
+}
+.navbar-expand-lg {
+  background: rgba(255, 255, 255, 0.15) !important; 
+  backdrop-filter: blur(10px) !important; /* Adjust the pixel value for more/less blur */
+  border-radius: 16px !important;
+  box-shadow: 0 40px 30px rgba(0, 0, 0, 0.1) !important; 
+  max-width: 120%;
+  color: white;   
+  position: sticky !important;
+  top: 0;
+}
+.navLink {
+  color: white !important;
+  margin: 0rem 2rem 0rem 2rem;
+}

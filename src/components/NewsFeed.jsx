@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { useGetScienceArticlesQuery } from '../features/news/scienceNewsApi';
-import { useGetSpaceArticlesQuery } from '../features/news/spaceNewsApi';
-import { getToken } from '../utils/tokenService';
+import { useGetScienceArticlesQuery } from '../features/news/scienceNewsApi.js';
+import { useGetSpaceArticlesQuery } from '../features/news/spaceNewsApi.js';
+import { getToken } from '../utils/tokenService.js';
 import { useNavigate } from 'react-router-dom';
+import '../styles/news.css';
 
 const NewsFeed = () => {
   // state declarations
@@ -24,13 +25,13 @@ const NewsFeed = () => {
     data: scienceData,
     isLoading: loadingScience,
     error: errorScience,
-  } = useGetScienceArticlesQuery({ page, pageSize: 20 });
+  } = useGetScienceArticlesQuery({ page, pageSize: 40 });
 
   const {
     data: spaceData,
     isLoading: loadingSpace,
     error: errorSpace,
-  } = useGetSpaceArticlesQuery({ page, pageSize: 20 });
+  } = useGetSpaceArticlesQuery({ page, pageSize: 40 });
 
   // button logic
   const handleLoadMore = () => {
@@ -155,6 +156,7 @@ const NewsFeed = () => {
 
   const unwantedPhrases = [
     'album',
+    'amazon',
     'apparel',
     'bomb',
     'baskets',
@@ -165,6 +167,7 @@ const NewsFeed = () => {
     'emotionally',
     'graphics',
     'buy',
+    'career',
     'CEO',
     'cloudflare',
     'condo',
@@ -204,6 +207,7 @@ const NewsFeed = () => {
     'python',
     'Re:',
     'realty',
+    'screen',
     'shoot',
     'singer',
     'skyscraper',
@@ -263,7 +267,7 @@ const NewsFeed = () => {
       return false;
     }
 
-    return true; // Only articles with topic and no unwanted phrases
+    return true;
   });
 
   // loading and error states
@@ -272,26 +276,23 @@ const NewsFeed = () => {
 
   return (
     <>
+    <div className="background">
       <div className='newsfeedContainer'>
         <p className='newsfeedHeader'>Quarky News</p>
         <div
-          style={{
-            paddingRight: '10rem',
-            paddingLeft: '10rem',
-          }}
         >
           {filteredArticles.length === 0 && <p>No relevant articles found.</p>}
           {filteredArticles.map((article, index) => (
             <div
               className='articleDescription'
               key={index}
-              style={{
-                marginBottom: '2rem',
-                borderBottom: '1px solid #ccc',
-                paddingBottom: '2rem',
-              }}
+              // style={{
+              //   marginBottom: '2rem',
+              //   borderBottom: '1px solid #ccc',
+              //   paddingBottom: '2rem',
+              // }}
             >
-              <h3 className='articleTitle'>{article.title}</h3>
+              <div className='articleTitle'>{article.title}</div>
               {article.urlToImage && (
                 <img
                   className='articleImage'
@@ -302,14 +303,13 @@ const NewsFeed = () => {
               )}
               <p>{article.description}</p>
 
-              {hasToken ? (
+              {/* {hasToken ? (*/}
+              <a href={article.url} target='_blank' rel='noopener noreferrer'>
                 <button onClick={() => handleArticleDetail(article.url)}>Read full article</button>
-                // <a href={article.url} target='_blank' rel='noopener noreferrer'>
-                //   Read full article
-                // </a>
-              ) : (
+              </a>
+              {/*  ) : (
                 <p>Register or Log in to read this article</p>
-              )}
+              )} */}
             </div>
           ))}
 
@@ -318,6 +318,7 @@ const NewsFeed = () => {
           )}
         </div>
       </div>
+    </div>
     </>
   );
 };

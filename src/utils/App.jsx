@@ -1,16 +1,16 @@
 import React, {useEffect} from "react";
 import { useDispatch } from "react-redux";
-import { initializeAuth } from "../features/auth/authSlice";
+import { initializeAuth } from "../features/auth/authSlice.js";
 
-import Navigation from "../components/Navigation";
-import Home from "../pages/Home";
-import RegistrationForm from "../components/RegistrationForm";
-import LoginForm from "../components/LoginForm";
-import News from "../pages/News";
-import Account from "../pages/Account";
-import ArticleDetail from "../pages/ArticleDetail";
+import Navigation from "../components/Navigation.jsx";
+import Home from "../pages/Home.jsx";
+// import RegistrationForm from "../components/RegistrationForm.jsx";
+// import LoginForm from "../components/LoginForm.jsx";
+import News from "../pages/News.jsx";
+// import Account from "../pages/Account.jsx";
+import ArticleDetail from "../pages/ArticleDetail.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import ProtectedRoute from "../components/ProtectedRoute";
+// import ProtectedRoute from "../components/ProtectedRoute.jsx";
 import "../styles/index.css";
 
 function App() {
@@ -28,11 +28,11 @@ function App() {
               {/* VISITOR ROUTES */}
               <Route path="/" element={<Home />} />
               <Route path="/news" element={<News />} />
-              <Route path="/login" element={<LoginForm />} />
-              <Route path="/register" element={<RegistrationForm />} />
+              {/* <Route path="/login" element={<LoginForm />} />
+              <Route path="/register" element={<RegistrationForm />} /> */}
 
               {/* USER PROTECTED ROUTES */}
-              <Route 
+              {/* <Route 
                 path="/account" 
                 element={
                 <ProtectedRoute>
@@ -47,7 +47,7 @@ function App() {
                     <ArticleDetail />
                   </ProtectedRoute>
                 }
-              />
+              /> */}
 
             </Routes>
         </Router>

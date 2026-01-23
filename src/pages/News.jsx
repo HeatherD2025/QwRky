@@ -1,15 +1,15 @@
 import React from 'react';
-import NewsFeed from '../components/NewsFeed';
+import NewsFeed from '../components/NewsFeed.jsx';
 import '../styles/news.css';
 
 const News = () => {
   return (
-    <div>
-        <NewsFeed />
+    <>
+      <NewsFeed />
       <footer>
-        <p>© {new Date().getFullYear()} Heather DeLiso</p>
+        <p className="footer">© {new Date().getFullYear()} Heather DeLiso</p>
       </footer>
-    </div>
+   </>
   );
 };
 

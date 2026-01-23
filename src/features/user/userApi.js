@@ -1,4 +1,4 @@
-import { api } from "../api/baseApi";
+import { api } from "../api/baseApi.js";
 
 export const userApi = api.injectEndpoints({
   reducerPath: "userApi",
