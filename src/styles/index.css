@@ -1,3 +1,51 @@
+.background {
+  background: linear-gradient(-45deg, #391d35, #201527, #151225);
+  background-size: 400% 400%; /* Make the background larger than the element */
+  animation: gradient-animation 15s ease infinite;
+  height: 100%;
+  width: 100%;
+  padding-top: 10rem;
+  margin: -10rem 0rem 0rem 0rem;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%; /* Start position */
+  }
+  50% {
+    background-position: 100% 50%; /* Middle position */
+  }
+  100% {
+    background-position: 0% 50%; /* Return to start */
+  }
+}
+p.spaceImageTitle, p.articleTitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  color: white;
+}
+.btn-bd-primary {
+  font-family: 'Inter', sans-serif;
+  --bs-btn-font-weight: 200;
+  --bs-btn-color: #f9f6f6;
+  --bs-btn-bg: #7e719c;
+  --bs-btn-border-color: #442cf9;
+  --bs-btn-hover-color: #9b9797;
+  --bs-btn-hover-bg: hsl(260, 40%, 37%);
+  --bs-btn-hover-border-color: #170c69;
+  --bs-btn-active-bg: #4e1fb3;
+  --bs-btn-active-border-color: #4e1fb3;
+}
+.feedHeader {
+  font-family: "Inter", sans-serif !important;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-size: xx-large;
+  padding-top: 5rem;
+}
 /* Carousel Elements */
 /* .banner {
   width: 100%;

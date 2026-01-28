@@ -11,6 +11,7 @@ import News from "../pages/News.jsx";
 import ArticleDetail from "../pages/ArticleDetail.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import ProtectedRoute from "../components/ProtectedRoute.jsx";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/index.css";
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
   }, [dispatch]);
 
   return (
+    <>
+      <div className="background">
         <Router>
           <Navigation />
             <Routes>
@@ -51,6 +54,8 @@ function App() {
 
             </Routes>
         </Router>
+      </div>
+    </>
   );
 }
 

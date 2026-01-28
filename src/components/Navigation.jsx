@@ -36,9 +36,9 @@ const Navigation = () => {
                 <Nav.Link as={Link} to='/' className="navLink">
                   Home
                 </Nav.Link>
-                <Nav.Link as={Link} to='/news' className="navLink">
+                {/* <Nav.Link as={Link} to='/news' className="navLink">
                   News
-                </Nav.Link>
+                </Nav.Link> */}
                 {isAuthenticated && (
                   <Nav.Link as={Link} to='/account' className="navLink">
                     Account

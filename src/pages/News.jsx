@@ -6,14 +6,20 @@ import '../styles/feeds.css';
 const News = () => {
   return (
     <>
-    <div className="feedContainer">
-      <NewsFeed />
-      <SpaceImagesFeed/>
+    <div className="container">
+      <div className="row">
+        <div className="col-6 col-lg-4">
+          <NewsFeed />
+        </div>
+
+        <div className="col-6 col-lg-8">
+          <SpaceImagesFeed/>
+        </div>
+      </div>
+        <footer>
+          <p className="footer">© {new Date().getFullYear()} Heather DeLiso</p>
+        </footer>
     </div>
-    
-      <footer>
-        <p className="footer">© {new Date().getFullYear()} Heather DeLiso</p>
-      </footer>
    </>
   );
 };

@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../features/auth/authSlice.js";
-import { scienceNewsApi } from "../features/news/scienceNewsApi.js";
+import { scienceNewsApi } from "../features/feeds/scienceNewsApi.js";
 import { userApi } from "../features/user/userApi.js";
-import { spaceNewsApi } from "../features/news/spaceNewsApi.js";
-import { spaceImagesApi } from "../features/news/apodApi.js";
+import { spaceNewsApi } from "../features/feeds/spaceNewsApi.js";
+import { spaceImagesApi } from "../features/feeds/apodApi.js";
 
 const store = configureStore({
   reducer: {

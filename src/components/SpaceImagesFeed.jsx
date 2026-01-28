@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import { useGetSpaceImagesQuery } from "../features/news/apodApi";
-import '../styles/feeds.css';
+import { useGetSpaceImagesQuery } from "../features/feeds/apodApi";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/index.css";
+// import '../styles/feeds.css';
 
 const SpaceImagesFeed = () => {
   // state declarations
@@ -16,7 +18,7 @@ const SpaceImagesFeed = () => {
     error: errorSpaceImages,
   } = useGetSpaceImagesQuery({ count });
 
-    // button logic
+  // button logic
   const handleLoadMore = () => {
     setCount((prevCount) => prevCount + 5);
   };
@@ -25,20 +27,20 @@ const SpaceImagesFeed = () => {
   useEffect(() => {
     if (!spaceImages) return;
 
-        const existingDates = new Set(imagesShown.map((img) => img.date));
+    const existingDates = new Set(imagesShown.map((img) => img.date));
 
-        const uniqueNewImages = spaceImages.filter(
-        (img) => !existingDates.has(img.date)
-        );
+    const uniqueNewImages = spaceImages.filter(
+      (img) => !existingDates.has(img.date),
+    );
 
-        if (uniqueNewImages.length > 0) {
-        setImagesShown((prev) => [...prev, ...uniqueNewImages]);
-        }
+    if (uniqueNewImages.length > 0) {
+      setImagesShown((prev) => [...prev, ...uniqueNewImages]);
+    }
 
-        if (spaceImages.count?.length < count) {
-        setHasMore(false);
-        }
-    }, [spaceImages]);
+    if (spaceImages.count?.length < count) {
+      setHasMore(false);
+    }
+  }, [spaceImages]);
 
   // loading and error states
   if (loadingSpaceImages) return <p>Loading images...</p>;
@@ -46,28 +48,27 @@ const SpaceImagesFeed = () => {
 
   return (
     <>
-    <div className="background">
-      <div className='spaceImagesFeedContainer'>
-        <p className="apodHeader">Astronomy Picture of the Day</p>
+      <div className="background">
+        
+          <p className="feedHeader">Astronomy Picture of the Day</p>
 
-        {imagesShown.map((image) =>
-            image.media_type === 'image' ? (
+          {imagesShown.map((image) =>
+            image.media_type === "image" ? (
               <div key={image.date} className="spaceImageCard">
-                <img
-                  src={image.url}
-                  alt={image.title}
-                  className="spaceImage"
-                />
+
                 <p className="spaceImageTitle">{image.title}</p>
+                <img src={image.url} alt={image.title} className="spaceImage" />
+                
               </div>
-            ) : null
-        )}
+            ) : null,
+          )}
 
           {hasMore && (
-            <button onClick={handleLoadMore} className="feedButton">load more images</button>
+            <button onClick={handleLoadMore} className="btn btn-bd-primary">
+              load more images
+            </button>
           )}
         </div>
-      </div>
     </>
   );
 };
