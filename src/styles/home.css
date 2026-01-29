@@ -1,24 +1,13 @@
-/* .animated-gradient {
-  background: linear-gradient(-45deg, #33052e, #1d0231, #150745, #0d015a);
-  background-size: 400% 400%; 
-  animation: gradient-animation 15s ease infinite;
-  height: 100%;
-  width: 100%;
-  padding-top: 10rem;
-  margin: -10rem 0rem 0rem 0rem;
-} */
-
-/* @keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%; 
-  }
-  50% {
-    background-position: 100% 50%; 
-  }
-  100% {
-    background-position: 0% 50%; 
-  }
-} */
+.welcomeAlert {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  display: grid;
+  justify-items: center;
+  padding: 5rem 0rem 5rem 0rem;
+  margin: 20% 0% 20% 0%;
+  z-index: 100;
+  position: sticky !important;
+}
 
 div.articleDescription,
 p {

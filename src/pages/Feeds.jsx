@@ -3,7 +3,7 @@ import NewsFeed from '../components/NewsFeed.jsx';
 import SpaceImagesFeed from '../components/SpaceImagesFeed.jsx';
 import '../styles/feeds.css';
 
-const News = () => {
+const Feeds = () => {
   return (
     <>
     <div className="container">
@@ -24,4 +24,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default Feeds;

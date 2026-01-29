@@ -291,51 +291,44 @@ const NewsFeed = () => {
   return (
     <>
       <div className="background">
+        <p className="feedHeader">Qrk-y News</p>
 
-            <p className="feedHeader">Quarky News</p>
-
-            <div className="p-3">
-              {filteredArticles.length === 0 && (
-                <p>No relevant articles found.</p>
+        <div className="p-3">
+          {filteredArticles.length === 0 && <p>No relevant articles found.</p>}
+          {filteredArticles.map((article, index) => (
+            <div className="newsCard p-3" key={index}>
+              <p className="articleTitle">{article.title}</p>
+              {article.urlToImage && (
+                <img
+                  className="articleImage"
+                  src={article.urlToImage}
+                  alt={article.title}
+                  style={{ width: "40em", height: "auto" }}
+                />
               )}
-              {filteredArticles.map((article, index) => (
-                <div className="newsCard p-3" key={index}>
-                  <p className="articleTitle">{article.title}</p>
-                  {article.urlToImage && (
-                    <img
-                      className="articleImage"
-                      src={article.urlToImage}
-                      alt={article.title}
-                      style={{ width: "40em", height: "auto" }}
-                    />
-                  )}
-                  <p>{article.description}</p>
+              <p>{article.description}</p>
 
-                  {/* {hasToken ? (*/}
-                  <a
-                    href={article.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <button
-                      onClick={() => handleArticleDetail(article.url)}
-                      className="btn btn-bd-primary"
-                    >
-                      Read full article
-                    </button>
-                  </a>
-                  {/*  ) : (
+              {/* {hasToken ? (*/}
+              <a href={article.url} target="_blank" rel="noopener noreferrer">
+                <button
+                  onClick={() => handleArticleDetail(article.url)}
+                  className="btn btn-bd-primary"
+                >
+                  Read full article
+                </button>
+              </a>
+              {/*  ) : (
                   <p>Register or Log in to read this article</p>
                 )} */}
-                </div>
-              ))}
-
-              {hasMore && (
-                <button onClick={handleLoadMore} className="btn btn-bd-primary">
-                  load more articles
-                </button>
-              )}
             </div>
+          ))}
+
+          {hasMore && (
+            <button onClick={handleLoadMore} className="btn btn-bd-primary">
+              load more articles
+            </button>
+          )}
+        </div>
       </div>
     </>
   );

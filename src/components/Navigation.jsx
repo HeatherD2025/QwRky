@@ -27,7 +27,7 @@ const Navigation = () => {
               <img
                 src={logo}
                 alt='Qrk-y Logo'
-                className="quarkyLogo"
+                className="qrkyLogo"
               />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
@@ -36,9 +36,7 @@ const Navigation = () => {
                 <Nav.Link as={Link} to='/' className="navLink">
                   Home
                 </Nav.Link>
-                {/* <Nav.Link as={Link} to='/news' className="navLink">
-                  News
-                </Nav.Link> */}
+              
                 {isAuthenticated && (
                   <Nav.Link as={Link} to='/account' className="navLink">
                     Account

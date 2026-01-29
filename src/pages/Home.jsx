@@ -1,12 +1,16 @@
 import React from "react";
-import "../styles/feeds.css";
+import { useState } from "react";
+import WelcomeAlert from "../components/WelcomeAlert";
+import Feeds from "./Feeds";
 import "../styles/home.css";
-import News from "./News";
 
 const Home = () => {
+  const [show, setShow] = useState(true);
+
   return (
     <div className="animated-gradient">
-      <News />
+      <WelcomeAlert />
+      <Feeds />
     </div>
   );
 };

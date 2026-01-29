@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { initializeAuth } from "../features/auth/authSlice.js";
 
@@ -6,12 +6,12 @@ import Navigation from "../components/Navigation.jsx";
 import Home from "../pages/Home.jsx";
 // import RegistrationForm from "../components/RegistrationForm.jsx";
 // import LoginForm from "../components/LoginForm.jsx";
-import News from "../pages/News.jsx";
+import Feeds from "../pages/Feeds.jsx";
 // import Account from "../pages/Account.jsx";
 import ArticleDetail from "../pages/ArticleDetail.jsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import ProtectedRoute from "../components/ProtectedRoute.jsx";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/index.css";
 
 function App() {
@@ -26,16 +26,15 @@ function App() {
       <div className="background">
         <Router>
           <Navigation />
-            <Routes>
-
-              {/* VISITOR ROUTES */}
-              <Route path="/" element={<Home />} />
-              <Route path="/news" element={<News />} />
-              {/* <Route path="/login" element={<LoginForm />} />
+          <Routes>
+            {/* VISITOR ROUTES */}
+            <Route path="/" element={<Home />} />
+            <Route path="/feeds" element={<Feeds />} />
+            {/* <Route path="/login" element={<LoginForm />} />
               <Route path="/register" element={<RegistrationForm />} /> */}
 
-              {/* USER PROTECTED ROUTES */}
-              {/* <Route 
+            {/* USER PROTECTED ROUTES */}
+            {/* <Route 
                 path="/account" 
                 element={
                 <ProtectedRoute>
@@ -51,8 +50,7 @@ function App() {
                   </ProtectedRoute>
                 }
               /> */}
-
-            </Routes>
+          </Routes>
         </Router>
       </div>
     </>

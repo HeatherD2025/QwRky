@@ -3,7 +3,7 @@ import { userApi } from "../user/userApi.js";
 import * as jwtDecode from "jwt-decode";
 import { setToken, getToken, removeToken } from "../../utils/tokenService.js";
 
-// CREATE AN APPLY AUTH PAYLOAD FUNCTION HERE - D.R.Y. 
+// CREATE AN APPLY AUTH PAYLOAD FUNCTION HERE - D.R.Y.
 
 export const initializeAuth = createAsyncThunk(
   "auth/initializeAuth",
@@ -11,7 +11,7 @@ export const initializeAuth = createAsyncThunk(
     const token = getToken();
 
     if (!token) {
-      return { isAuthenticated: false, user: null, token: null }
+      return { isAuthenticated: false, user: null, token: null };
     }
 
     try {
@@ -21,7 +21,7 @@ export const initializeAuth = createAsyncThunk(
         username: decoded.username,
         email: decoded.email,
         isAdmin: decoded.isAdmin || false,
-      }
+      };
       return {
         isAuthenticated: true,
         user,
@@ -29,11 +29,10 @@ export const initializeAuth = createAsyncThunk(
       };
     } catch (error) {
       removeToken();
-      return { isAuthenticated: false, user: null, token: null}
+      return { isAuthenticated: false, user: null, token: null };
     }
-  }
+  },
 );
-
 
 const initialState = {
   isAuthenticated: false,
@@ -54,11 +53,11 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-    .addCase(initializeAuth.fulfilled, (state, action) => {
-      state.isAuthenticated = action.payload.isAuthenticated;
-      state.user = action.payload.user;
-      state.token = action.payload.token;
-    })
+      .addCase(initializeAuth.fulfilled, (state, action) => {
+        state.isAuthenticated = action.payload.isAuthenticated;
+        state.user = action.payload.user;
+        state.token = action.payload.token;
+      })
 
       .addMatcher(
         userApi.endpoints.login.matchFulfilled,
@@ -67,7 +66,7 @@ const authSlice = createSlice({
           state.isAuthenticated = true;
           state.token = payload.token;
           state.user = payload.user;
-        }
+        },
       )
       .addMatcher(
         userApi.endpoints.register.matchFulfilled,
@@ -76,17 +75,14 @@ const authSlice = createSlice({
           state.isAuthenticated = true;
           state.token = payload.token;
           state.user = payload.user;
-        }
+        },
       )
-      .addMatcher(
-        userApi.endpoints.logout.matchFulfilled,
-        (state) => {
-          removeToken();
-          state.isAuthenticated = false;
-          state.user = null;
-          state.token = null;
-        }
-      );
+      .addMatcher(userApi.endpoints.logout.matchFulfilled, (state) => {
+        removeToken();
+        state.isAuthenticated = false;
+        state.user = null;
+        state.token = null;
+      });
   },
 });
 
