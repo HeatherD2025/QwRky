@@ -1,6 +1,6 @@
 # Qrk-y
 
-![Qrk-y logo](./Qrk-y_logo.png)
+<img src="./Qrk-y.png" alt="Qrk-y logo" width="300"/>
 
 ### Created By
 
