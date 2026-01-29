@@ -1,7 +1,6 @@
 # Qrk-y
 
-![Qrk-y logo](src/assets//logo//Qrk-y_logo.png)
-![Screenshot of my project](src/assets//logo//Qrk-y_logo.png)
+![Qrk-y logo](./Qrk-y_logo.png)
 
 ### Created By
 
