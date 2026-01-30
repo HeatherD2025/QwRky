@@ -388,13 +388,13 @@ const NewsFeed = () => {
                 style={{ width: "40em", height: "auto" }}
               />
             )}
-            <p>{article.description}</p>
+            <p className="articleDescription">{article.description}</p>
 
             {/* {hasToken ? (*/}
             <a href={article.url} target="_blank" rel="noopener noreferrer">
               <button
                 onClick={() => handleArticleDetail(article.url)}
-                className="btn btn-bd-primary"
+                className="btn btn-bd-primary btn-sm"
               >
                 Read full article
               </button>

@@ -10,7 +10,8 @@ const SpaceImagesFeed = () => {
   const [imagesShown, setImagesShown] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
-  const loadMoreRef = useRef(null)
+  const loadMoreRef = useRef(null);
+  // const [modalShow, setModalShow] = React.useState(false);
 
   // data fetching hooks
   const {

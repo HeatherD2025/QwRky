@@ -32,9 +32,9 @@ const Navigation = () => {
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
               <Nav className='me-auto'>
-                <Nav.Link as={Link} to='/' className="navLink">
+                {/* <Nav.Link as={Link} to='/' className="navLink">
                   Home
-                </Nav.Link>
+                </Nav.Link> */}
               
                 {isAuthenticated && (
                   <Nav.Link as={Link} to='/account' className="navLink">

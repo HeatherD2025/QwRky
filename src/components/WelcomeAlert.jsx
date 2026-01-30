@@ -21,9 +21,9 @@ export default function WelcomeAlert() {
           className="welcomeAlert" 
           onClose={() => setShow(false)} dismissible
           style={{
-            backgroundColor: "rgba(25, 11, 11, 0.36)",
+            backgroundColor: "rgba(12, 12, 12, 0.36)",
             backdropFilter: "blur(10px)",
-            border: "rgb(233, 207, 186) 1px solid",
+            border: " rgb(246, 205, 147) 1px solid",
           }}
         >
           <div className="welcomeAlertTextContainer">

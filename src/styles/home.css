@@ -1,9 +1,13 @@
 
 .alertContainer {
   position: fixed !important;
-  top: 12% !important;
+  top: 3% !important;
   display: flex;
   justify-content: center;
+  background-image: url("../assets//logo/QwRky_logo.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position-y: 35%;
   align-items: center;
   z-index: 101;
 }
@@ -24,16 +28,18 @@
 .welcomeAlertTextContainer {
   font-family: 'Inter', sans-serif;
   font-weight: 300;
+  font-size: 14px;
   display: grid;
   justify-items: center;
   text-align: center;
   border-radius: 16px !important;
-  background: rgb(233, 207, 186);
+  background: rgb(246, 205, 147);
   height: 18rem;
-  max-width: 100%;
+  max-width: 50%;
+  height: 50%;
   min-width: 25%;
-  padding: 2rem 10rem 2rem 10rem;
-  margin: 20% 5% 20% 5%;
+  padding: 2rem 8rem 2rem 8rem;
+  margin: 18% 5% 18% 5%;
   z-index: 103;
 }
 .btn-close {

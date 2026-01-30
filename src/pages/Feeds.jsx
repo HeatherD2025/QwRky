@@ -5,13 +5,14 @@ import '../styles/feeds.css';
 const Feeds = () => {
   return (
     <>
-    <div className="feedsContainer">
-      <div className="row">
-        <div className="feedHeader">
+    <div className="row">
+        <div className="feedHeaderContainer">
           <p className="feedHeader1">QwRky News</p>
           <p className="feedHeader2">Astronomy Picture of the Day</p>
         </div>
       </div>
+
+    <div className="feedsContainer">
       <div className="row">
         <div className="col-6 col-lg-4">
           <NewsFeed />
