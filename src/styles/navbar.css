@@ -3,9 +3,9 @@
   height: 6rem;
 }
 .navbar-expand-lg {
-  background-color: rgba(57, 55, 55, 0.361);
-  backdrop-filter: blur(10px) !important; /* Adjust the pixel value for more/less blur */
-  box-shadow: 0 40px 30px rgba(0, 0, 0, 0.1) !important; 
+  /* background-color: rgba(57, 55, 55, 0.361);
+  backdrop-filter: blur(10px) !important; */
+  /* box-shadow: 0 40px 30px rgba(0, 0, 0, 0.1) !important;  */
   width: 100%;
   color: white;   
   position: fixed !important;

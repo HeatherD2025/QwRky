@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import WelcomeAlert from "../components/WelcomeAlert";
 import Feeds from "./Feeds";
@@ -8,7 +7,7 @@ const Home = () => {
   const [show, setShow] = useState(true);
 
   return (
-    <> 
+    <>
       <WelcomeAlert />
       <Feeds />
     </>

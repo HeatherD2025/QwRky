@@ -9,12 +9,32 @@ export const spaceImagesApi = createApi({
     baseUrl: 'https://api.nasa.gov/planetary/apod',
   }),
   endpoints: (builder) => ({
-    getSpaceImages: builder.query({
-      query: ({ count = 1 } = {}) => ({
+    // getSpaceImages: builder.query({
+    //   query: ({ count = 1 } = {}) => ({
+    //     url: '',
+    //     params: {
+    //         api_key: SPACE_IMAGES_API_KEY,
+    //         count,
+    //         thumbs: true,
+    //     },
+    //   }),
+    // }),
+    getTodaysSpaceImage: builder.query({
+      query: ({ date } ={}) => ({
         url: '',
         params: {
             api_key: SPACE_IMAGES_API_KEY,
-            count,
+            thumbs: true,
+        }
+      })
+    }),
+    getSpaceImagesByDates: builder.query({
+      query: ({ start_date, end_date } = {}) => ({
+        url: '',
+        params: {
+            api_key: SPACE_IMAGES_API_KEY,
+            start_date,
+            end_date,
             thumbs: true,
         },
       }),
@@ -22,4 +42,8 @@ export const spaceImagesApi = createApi({
   }),
 });
 
-export const { useGetSpaceImagesQuery } = spaceImagesApi;
+export const { 
+  useGetTodaysSpaceImageQuery, 
+  // useGetSpaceImagesQuery, 
+  useGetSpaceImagesByDatesQuery 
+} = spaceImagesApi;

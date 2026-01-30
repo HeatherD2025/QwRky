@@ -374,8 +374,9 @@ const NewsFeed = () => {
 
   return (
     <>
-      <div className="limitedFeedContainer">
+      <div className="newsFeedContainer">
         {filteredArticles.length === 0 && <p>No relevant articles found.</p>}
+         <p className="feedHeader">QwRky News</p>
 
         {filteredArticles.map((article, index) => (
           <div className="newsCard p-3" key={index}>

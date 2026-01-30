@@ -3,6 +3,7 @@
   position: fixed !important;
   top: 3% !important;
   display: flex;
+  width: 100%;
   justify-content: center;
   background-image: url("../assets//logo/QwRky_logo.webp");
   background-position: center;
@@ -16,7 +17,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 16px !important;
-  width: 90%;
+  max-width: 90%;
   height: auto;
   z-index: 100;
   padding: 3rem !important;
