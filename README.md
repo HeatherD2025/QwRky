@@ -1,6 +1,6 @@
-# Qrk-y
+# QwRky
 
-<img src="./Qrk-y_logo.png" alt="Qrk-y logo" width="300"/>
+<img src="./QwRky_logo.webp" alt="QwRky logo" width="300"/>
 
 ### Created By
 
@@ -8,7 +8,7 @@
 
 A science themed site that combines news and images from around the world and beyond.
 
-link to backend repository: https://github.com/HeatherD2025/Qrk-y
+link to backend repository: https://github.com/HeatherD2025/QwRky
 
 ## Key Features
 

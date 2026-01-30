@@ -17,6 +17,7 @@
   z-index: 100;
   padding: 3rem !important;
 }
+
 .bs-alert-border-color {
   border: none !important;
 }
@@ -33,6 +34,7 @@
   min-width: 25%;
   padding: 2rem 10rem 2rem 10rem;
   margin: 20% 5% 20% 5%;
+  z-index: 103;
 }
 .btn-close {
   position: absolute;

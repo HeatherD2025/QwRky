@@ -27,7 +27,8 @@ export default function WelcomeAlert() {
           }}
         >
           <div className="welcomeAlertTextContainer">
-              <h1>Welcome to Qrk-y!</h1> 
+            <img className="alertBackgroundLogo"></img>
+              <h1>Welcome to QwRky!</h1> 
                 <br />
                   Your gateway to the latest in science and space news. 
                   Explore articles on astrophysics, cosmology, latest discoveries, 

@@ -8,7 +8,7 @@ const Feeds = () => {
     <div className="feedsContainer">
       <div className="row">
         <div className="feedHeader">
-          <p className="feedHeader1">Qrk-y News</p>
+          <p className="feedHeader1">QwRky News</p>
           <p className="feedHeader2">Astronomy Picture of the Day</p>
         </div>
       </div>

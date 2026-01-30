@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Nav, Navbar } from 'react-bootstrap';
 import { logout } from "../features/auth/authSlice.js";
 // import LoginForm from './LoginForm.jsx';
-import logo from '../assets/logo/Qrk-y_logo.png';
+import logo from '../assets/logo/QwRky_logo.webp';
 import '../styles/navbar.css';
 
 const Navigation = () => {
@@ -25,7 +25,7 @@ const Navigation = () => {
             <Navbar.Brand as={Link} to='/'>
               <img
                 src={logo}
-                alt='Qrk-y Logo'
+                alt='QwRky Logo'
                 className="qrkyLogo"
               />
             </Navbar.Brand>
