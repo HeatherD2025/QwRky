@@ -1,6 +1,6 @@
 # QwRky
 
-<img src="./QwRky_logo.png" alt="QwRky logo" width="300"/>
+<img src="./QwRky_logo.webp" alt="QwRky logo" width="300"/>
 
 ### Created By
 
