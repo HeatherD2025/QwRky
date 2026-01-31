@@ -1,12 +1,16 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useGetScienceArticlesQuery } from "../features/feeds/scienceNewsApi.js";
 import { useGetSpaceArticlesQuery } from "../features/feeds/spaceNewsApi.js";
-import { useGetSpaceImagesQuery } from "../features/feeds/apodApi";
+import { useGetSpaceImagesByDatesQuery } from "../features/feeds/apodApi";
+import { FaSearch } from "react-icons/fa"; 
+import "../styles/home.css";
 
-const SearchBar = () => {
+export const SearchBar = () => {
 // declare use state(s) for updating search bar
-  const [matchFound, setMatchFound] = useState("")
-  const [loading, setloading] = useState(false)
+//   const [matchFound, setMatchFound] = useState("");
+  const [input, setInput] = useState("");
+  const [results, setResults] = useState([])
+  const [loading, setloading] = useState(false);
   const [error, setError] = useState("");
 
 // implement data fetching hooks
@@ -22,10 +26,14 @@ const {
     error: errorSpace,
   } = useGetSpaceArticlesQuery({ search });
 const {
-    data: spaceImages,
-    isLoading: loadingSpaceImages,
-    error: errorSpaceImages,
-  } = useGetSpaceImagesQuery({ search });
+    data: spaceImagesByDate,
+    isLoading: loadingSpaceImagesByDate,
+    error: errorSpaceImagesByDate,
+  } = useGetSpaceImagesByDatesQuery({ search });
+
+  const handleSearch = async () => {
+
+  };
 
 // normalize data shape for filter function?
 // implement .filter based on the input of user (onclick for search - immediate search later
@@ -37,6 +45,17 @@ const {
 
 
     return (
-        <></>
-    )
-}
+        <>
+            <div className="searchBarContainer">
+                <div className="inputWrapper">
+                    <FaSearch id="searchIcon"/>
+                    <input 
+                      placeholder="Type to search..." 
+                      value={input} 
+                      onChange={(e) => setInput(e.target.value)}
+                    />
+                </div>
+            </div>
+        </>
+    );
+};
