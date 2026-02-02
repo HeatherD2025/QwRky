@@ -12,7 +12,7 @@ const SearchResultsFeed = ({results}) => {
 
   return (
     <>
-      <div className="newsFeedContainer">
+      <div className="searchFeedContainer">
         {results.map((article, index) => (
             <ArticleCard key={index} article={article}/>
         ))}

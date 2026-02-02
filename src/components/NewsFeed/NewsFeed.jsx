@@ -15,7 +15,7 @@ const NewsFeed = () => {
   return (
     <>
       <div className="newsFeedContainer">
-        <p className="feedHeader">QwRky News</p>
+        <p className="feedHeader">QwRky Science News</p>
 
         <div className="searchBarContainer">
           <SearchBar

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useGetScienceArticlesQuery } from "../../features/feeds/scienceNewsApi.js";
 import { useGetSpaceArticlesQuery } from "../../features/feeds/spaceNewsApi.js";
 // import { useGetSpaceImagesQuery } from "../features/feeds/apodApi";
-import { FaSearch } from "react-icons/fa";
 import "../../styles/feeds.css";
 
 const SearchBar = ({ setSearchResults, setIsSearching }) => {
@@ -82,7 +81,6 @@ const SearchBar = ({ setSearchResults, setIsSearching }) => {
   return (
     <>
       <div className="inputWrapper">
-        <FaSearch id="search-icon" />
         <input
           placeholder="Type to search..."
           value={input}
