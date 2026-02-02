@@ -10,10 +10,10 @@ export const scienceNewsApi = createApi({
   }),
   endpoints: (builder) => ({
     getScienceArticles: builder.query({
-      query: ({ pageSize = 100} = {}) => ({
+      query: ({ search = "", pageSize = 100} = {}) => ({
         url: 'everything',
         params: {
-          q: 'science OR scientific',
+          q: search || 'science OR scientific',
           language: "en",
           page: 1,
           pageSize,

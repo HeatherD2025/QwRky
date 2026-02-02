@@ -14,3 +14,26 @@ export const spaceNewsApi = createApi({
 });
 
 export const { useGetSpaceArticlesQuery } = spaceNewsApi;
+
+// export const spaceNewsApi = createApi({
+//   reducerPath: 'spaceNewsApi',
+//   baseQuery: fetchBaseQuery({
+//     baseUrl: 'https://api.spaceflightnewsapi.net/v4/',
+//   }),
+//   endpoints: (builder) => ({
+//     getSpaceArticles: builder.query({
+//       query: ({ search = "", pageSize = 10 } = {}) => ({
+//         url: "everything",
+//         params: {
+//           q: search || "",
+//           language: "en",
+//           page: 1,
+//           pageSize,
+//           sortBy: "publishedAt",
+//         },
+//       }),
+//     }),
+//   }),
+// });
+
+// export const { useGetSpaceArticlesQuery } = spaceNewsApi;

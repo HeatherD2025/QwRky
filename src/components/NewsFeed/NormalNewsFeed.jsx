@@ -1,22 +1,23 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useGetScienceArticlesQuery } from "../features/feeds/scienceNewsApi.js";
-import { useGetSpaceArticlesQuery } from "../features/feeds/spaceNewsApi.js";
-import { getToken } from "../utils/tokenService.js";
+import { useGetScienceArticlesQuery } from "../../features/feeds/scienceNewsApi.js";
+import { useGetSpaceArticlesQuery } from "../../features/feeds/spaceNewsApi.js";
+import { getToken } from "../../utils/tokenService.js";
 import { useNavigate } from "react-router-dom";
+import ArticleCard from "./ArticleCard.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/index.css";
-import "../styles/feeds.css";
+import "../../styles/index.css";
+import "../../styles/feeds.css";
 
-const NewsFeed = () => {
+const NormalNewsFeed = () => {
   // // state declarations
   const [page, setPage] = useState(1);
   const [articlesShown, setArticlesShown] = useState([]);
+
   // const [hasToken, setHasToken] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const loadMoreRef = useRef(null);
-
 
   // authNeeded check
   // useEffect(() => {
@@ -40,7 +41,7 @@ const NewsFeed = () => {
   // button logic
   const handleLoadMore = () => {
     if (loading) return;
-    setLoading(true); 
+    setLoading(true);
     setPage((prev) => prev + 1);
   };
 
@@ -76,7 +77,6 @@ const NewsFeed = () => {
 
     setLoading(false);
   }, [scienceData, spaceData]);
-
 
   // filtering
   const topics = [
@@ -341,15 +341,15 @@ const NewsFeed = () => {
   });
 
   // infinite scroll effect
-    useEffect(() => {
+  useEffect(() => {
     if (!loadMoreRef.current) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (
-          entry.isIntersecting && 
-          hasMore && 
-          !loading && 
+          entry.isIntersecting &&
+          hasMore &&
+          !loading &&
           !filteredArticles.length < 40
         ) {
           handleLoadMore();
@@ -359,7 +359,7 @@ const NewsFeed = () => {
         root: null,
         rootMargin: "200px",
         threshold: 0,
-      }
+      },
     );
 
     observer.observe(loadMoreRef.current);
@@ -367,54 +367,57 @@ const NewsFeed = () => {
     return () => observer.disconnect();
   }, [hasMore, loading, filteredArticles.length]);
 
-
   // loading and error states
   if (loadingScience || loadingSpace) return <p>Loading articles...</p>;
   if (errorScience || errorSpace) return <p>Error loading articles</p>;
 
   return (
     <>
-      <div className="newsFeedContainer">
-        {filteredArticles.length === 0 && <p>No relevant articles found.</p>}
-         <p className="feedHeader">QwRky News</p>
+      {filteredArticles.length === 0 && <p>No relevant articles found.</p>}
 
         {filteredArticles.map((article, index) => (
-          <div className="newsCard p-3" key={index}>
-            <p className="articleTitle">{article.title}</p>
-            {article.urlToImage && (
-              <img
-                className="articleImage"
-                src={article.urlToImage}
-                alt={article.title}
-                style={{ width: "40em", height: "auto" }}
-              />
-            )}
-            <p className="articleDescription">{article.description}</p>
+            <ArticleCard 
+              key={index}
+              article={article}
+              onRead={handleArticleDetail}
+            />
+        //   <div className="newsCard p-3" key={index}>
+        //     <p className="articleTitle">{article.title}</p>
 
-            {/* {hasToken ? (*/}
-            <a href={article.url} target="_blank" rel="noopener noreferrer">
-              <button
-                onClick={() => handleArticleDetail(article.url)}
-                className="btn btn-bd-primary btn-sm"
-              >
-                Read full article
-              </button>
-            </a>
-            {/*  ) : (
-                  <p>Register or Log in to read this article</p>
-                )} */}
-          </div>
+        //     {article.urlToImage && (
+        //       <img
+        //         className="articleImage"
+        //         src={article.urlToImage}
+        //         alt={article.title}
+        //         style={{ width: "40em", height: "auto" }}
+        //       />
+        //     )}
+
+        //     <p className="articleDescription">{article.description}</p>
+
+        //     {/* {hasToken ? (*/}
+        //     <a href={article.url} target="_blank" rel="noopener noreferrer">
+        //       <button
+        //         onClick={() => handleArticleDetail(article.url)}
+        //         className="btn btn-bd-primary btn-sm"
+        //       >
+        //         Read full article
+        //       </button>
+        //     </a>
+        //     {/*  ) : (
+        //           <p>Register or Log in to read this article</p>
+        //         )} */}
+        //   </div>
         ))}
         <div ref={loadMoreRef} style={{ height: "1px" }} />
 
-        {/* {hasMore && (
+        {hasMore && (
           <button onClick={handleLoadMore} className="btn btn-bd-primary">
             load more articles
           </button>
-        )} */}
-      </div>
+        )}
     </>
   );
 };
 
-export default NewsFeed;
+export default NormalNewsFeed;
