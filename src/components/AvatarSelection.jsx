@@ -1,5 +1,5 @@
 import { Form, Row, Col } from 'react-bootstrap';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import avatar1 from '../assets/accountAvatarImages/avatar1.png';
 import avatar2 from '../assets/accountAvatarImages/avatar2.png';
 import avatar3 from '../assets/accountAvatarImages/avatar3.png';

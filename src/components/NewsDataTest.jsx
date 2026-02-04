@@ -1,3 +1,4 @@
+import React from "react";
 import { useGetTheNewsArticlesQuery } from "../features/feeds/theNewsApi";
 import { testValue } from "../features/feeds/theNewsApi";
 

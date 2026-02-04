@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const CommentForm = ({ articleUrl, userId }) => {
   const [ content, setContent] = useState('');

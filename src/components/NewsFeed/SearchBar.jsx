@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useGetScienceArticlesQuery } from "../../features/feeds/scienceNewsApi.js";
 import { useGetSpaceArticlesQuery } from "../../features/feeds/spaceNewsApi.js";
 // import { useGetSpaceImagesQuery } from "../features/feeds/apodApi";

@@ -2,7 +2,7 @@ import {
   useEditProfileMutation,
   useGetMeQuery,
 } from "../features/user/userApi.js";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 const ProfileEditor = () => {
   const { data: user } = useGetMeQuery();

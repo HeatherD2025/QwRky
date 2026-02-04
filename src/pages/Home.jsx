@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import WelcomeAlert from "../components/WelcomeAlert";
 import Feeds from "./Feeds";
 import "../styles/home.css";

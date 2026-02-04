@@ -1,3 +1,4 @@
+import React from "react";
 import "../../styles/feeds.css";
 
 const ArticleCard = ({ article, onRead }) => {
