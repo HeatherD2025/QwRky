@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const SPACE_IMAGES_API_KEY = import.meta.env.VITE_NASA_API_KEY;
+const SPACE_IMAGES_API_KEY = import.meta.env.NASA_API_KEY;
 
 export const spaceImagesApi = createApi({
   reducerPath: 'spaceImagesApi',

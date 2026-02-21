@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { getToken } from "/src/utils/tokenService.js";
 
-const BASE_URL = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+const BASE_URL = import.meta.env.BACKEND_URL || "http://localhost:5000";
 
 export const baseQuery = fetchBaseQuery({
   baseUrl: `${BASE_URL}/api/`,
