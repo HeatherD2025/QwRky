@@ -28,7 +28,6 @@ export const spaceImagesApi = api.injectEndpoints({
         params: {
             start_date,
             end_date,
-            thumbs: true,
         },
       }),
     }),

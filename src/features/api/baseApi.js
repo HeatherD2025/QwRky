@@ -15,6 +15,7 @@ export const baseQuery = fetchBaseQuery({
 });
 
 export const api = createApi({
+  reducerPath: "api",
   baseQuery,
   tagTypes: [], // common tags here if needed
   endpoints: () => ({}), // empty base endpoints, to be extended
