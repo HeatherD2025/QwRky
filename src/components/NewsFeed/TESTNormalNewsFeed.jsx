@@ -11,7 +11,7 @@ const TESTNormalNewsFeed = () => {
 //   const [page, setPage] = useState(1);
   const [articlesShown, setArticlesShown] = useState([]);
   const [hasMore, setHasMore] = useState(true);
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const loadMoreRef = useRef(null);
 
@@ -24,6 +24,13 @@ const TESTNormalNewsFeed = () => {
   const handleArticleDetail = (articleUrl) => {
     navigate(`/article/${encodeURIComponent(articleUrl)}`);
     console.log("attempting to navigate");
+  };
+
+    // button logic
+  const handleLoadMore = () => {
+    if (isLoading) return;
+    setIsLoading(true);
+    setPage((prev) => prev + 1);
   };
 
     // useEffect updates articlesShown when data changes
