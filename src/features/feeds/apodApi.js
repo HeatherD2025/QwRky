@@ -1,37 +1,31 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { api } from '../api/baseApi';
 
-const SPACE_IMAGES_API_KEY = import.meta.env.NASA_API_KEY;
-
-export const spaceImagesApi = createApi({
-  reducerPath: 'spaceImagesApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api.nasa.gov/planetary/apod',
-  }),
+export const spaceImagesApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getSpaceImages: builder.query({
       query: ({ count = 1 } = {}) => ({
-        url: '',
+        url: "nasa",
         params: {
-            api_key: SPACE_IMAGES_API_KEY,
-            count,
+          count,
+          thumbs: true,
+        },
+      }),
+    }),
+
+    getTodaysSpaceImage: builder.query({
+      query: ({ date } ={}) => ({
+        url: "nasa",
+        params: {
+            date,
             thumbs: true,
         },
       }),
     }),
-    getTodaysSpaceImage: builder.query({
-      query: ({ date } ={}) => ({
-        url: '',
-        params: {
-            api_key: SPACE_IMAGES_API_KEY,
-            thumbs: true,
-        }
-      })
-    }),
+
     getSpaceImagesByDates: builder.query({
       query: ({ start_date, end_date } = {}) => ({
-        url: '',
+        url: "nasa",
         params: {
-            api_key: SPACE_IMAGES_API_KEY,
             start_date,
             end_date,
             thumbs: true,

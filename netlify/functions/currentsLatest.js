@@ -5,7 +5,7 @@ export const handler = async (event) => {
     const url = new URL("https://api.currentsapi.services/v1/search");
 
     if (language) url.searchParams.set("language", language);
-    if (category) url.searchParams.set("categeory", category);
+    if (category) url.searchParams.set("category", category);
 
     const response = await fetch(url.toString(), {
       headers: {
