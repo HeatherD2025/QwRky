@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useGetScienceArticlesQuery } from "../../features/feeds/scienceNewsApi.js";
-import { useGetSpaceArticlesQuery } from "../../features/feeds/spaceNewsApi.js";
-import { useGetTheNewsArticlesQuery } from "../../features/feeds/theNewsApi.js";
+// import { useGetScienceArticlesQuery } from "../../features/feeds/scienceNewsApi.js";
+// import { useGetSpaceArticlesQuery } from "../../features/feeds/spaceNewsApi.js";
+import { useGetLatestNewsQuery } from "../../features/feeds/currentsApi.js";
 import { getToken } from "../../utils/tokenService.js";
 import { useNavigate } from "react-router-dom";
 import ArticleCard from "./ArticleCard.jsx";
@@ -27,23 +27,23 @@ const NormalNewsFeed = () => {
   // }, []);
 
   // data fetching hooks
-  const {
-    data: scienceData,
-    isLoading: loadingScience,
-    error: errorScience,
-  } = useGetScienceArticlesQuery({ page, pageSize: 50 });
+  // const {
+  //   data: scienceData,
+  //   isLoading: loadingScience,
+  //   error: errorScience,
+  // } = useGetScienceArticlesQuery({ page, pageSize: 50 });
+
+  // const {
+  //   data: spaceData,
+  //   isLoading: loadingSpace,
+  //   error: errorSpace,
+  // } = useGetSpaceArticlesQuery({ page, pageSize: 50 });
 
   const {
-    data: spaceData,
-    isLoading: loadingSpace,
-    error: errorSpace,
-  } = useGetSpaceArticlesQuery({ page, pageSize: 50 });
-
-  const {
-    data: theNewsData,
-    isLoading: loadingTheNews,
-    error: errorTheNews,
-  } = useGetTheNewsArticlesQuery({  });
+    data: currentsData,
+    isLoading: loadingCurrents,
+    error: errorCurrents,
+  } = useGetLatestNewsQuery({ language: "en" });
 
   // button logic
   const handleLoadMore = () => {
@@ -61,9 +61,9 @@ const NormalNewsFeed = () => {
   useEffect(() => {
     const existingTitles = new Set(articlesShown.map((a) => a.title));
     const newArticles = [
-      ...(scienceData?.articles || []),
-      ...(spaceData?.results || []), // spaceData uses `.results` not `.articles`
-      ...(theNewsData?.articles || []),
+      // ...(scienceData?.articles || []),
+      // ...(spaceData?.results || []), // spaceData uses `.results` not `.articles`
+      ...(currentsData?.articles || []),
     ];
 
     const uniqueNewArticles = newArticles.filter(
@@ -75,18 +75,19 @@ const NormalNewsFeed = () => {
     }
 
     if (
-      scienceData &&
-      scienceData.articles?.length < 30 &&
-      spaceData &&
-      spaceData.results?.length < 30 &&
-      theNewsData &&
-      theNewsData.results?.length < 30
+      // scienceData &&
+      // scienceData.articles?.length < 30 &&
+      // spaceData &&
+      // spaceData.results?.length < 30 &&
+      currentsData &&
+      currentsData.results?.length < 30
     ) {
       setHasMore(false);
     }
 
     setLoading(false);
-  }, [scienceData, spaceData, theNewsData]);
+    // }, [scienceData, spaceData, theNewsData]);
+  }, [currentsData]);
 
   // filtering
   const topics = [
@@ -360,7 +361,7 @@ const NormalNewsFeed = () => {
           entry.isIntersecting &&
           hasMore &&
           !loading &&
-          !filteredArticles.length < 40
+          filteredArticles.length < 40
         ) {
           handleLoadMore();
         }
@@ -378,10 +379,10 @@ const NormalNewsFeed = () => {
   }, [hasMore, loading, filteredArticles.length]);
 
   // loading and error states
-  if (loadingScience || loadingSpace || loadingTheNews)
-    return <p>Loading articles...</p>;
-  if (errorScience || errorSpace || errorTheNews)
-    return <p>Error loading articles</p>;
+  // if (loadingScience || loadingSpace || loadingTheNews)
+  if (loadingCurrents) return <p>Loading articles...</p>;
+  // if (errorScience || errorSpace || errorTheNews)
+  if (errorCurrents) return <p>Error loading articles</p>;
 
   return (
     <>

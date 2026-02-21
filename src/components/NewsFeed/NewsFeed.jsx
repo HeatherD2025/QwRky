@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { getToken } from "../../utils/tokenService.js";
 import SearchBar from "./SearchBar.jsx";
-import NormalNewsFeed from "./NormalNewsFeed.jsx";
+// import NormalNewsFeed from "./NormalNewsFeed.jsx";
+import TESTNormalNewsFeed from "./TESTNormalNewsFeed.jsx";
 import SearchResultsFeed from "./SearchResultsFeed.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../../styles/index.css";
@@ -27,9 +28,9 @@ const NewsFeed = () => {
         {isSearching ? (
           <SearchResultsFeed results={searchResults} />
         ) : (
-          <NormalNewsFeed />
+          // <NormalNewsFeed />
+          <TESTNormalNewsFeed />
         )}
-
       </div>
     </>
   );

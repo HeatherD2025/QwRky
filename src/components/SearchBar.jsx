@@ -1,39 +1,46 @@
-import React, { useState } from "react";
-import { useGetScienceArticlesQuery } from "../features/feeds/scienceNewsApi.js";
-import { useGetSpaceArticlesQuery } from "../features/feeds/spaceNewsApi.js";
-import { useGetSpaceImagesByDatesQuery } from "../features/feeds/apodApi";
-import { FaSearch } from "react-icons/fa"; 
-import "../styles/home.css";
+// import React, { useState } from "react";
+// import { useGetScienceArticlesQuery } from "../features/feeds/scienceNewsApi.js";
+// import { useGetSpaceArticlesQuery } from "../features/feeds/spaceNewsApi.js";
+// import { useGetSpaceImagesByDatesQuery } from "../features/feeds/apodApi";
+// import { useGetLatestNewsQuery } from "../features/feeds/currentsApi";
+// import { FaSearch } from "react-icons/fa"; 
+// import "../styles/home.css";
 
-export const SearchBar = () => {
+// export const SearchBar = () => {
 // declare use state(s) for updating search bar
 //   const [matchFound, setMatchFound] = useState("");
-  const [input, setInput] = useState("");
-  const [results, setResults] = useState([])
-  const [loading, setloading] = useState(false);
-  const [error, setError] = useState("");
+  // const [input, setInput] = useState("");
+  // const [results, setResults] = useState([])
+  // const [loading, setloading] = useState(false);
+  // const [error, setError] = useState("");
 
 // implement data fetching hooks
-const {
-    data: scienceData,
-    isLoading: loadingScience,
-    error: errorScience,
-  } = useGetScienceArticlesQuery({ search });
+// const {
+//     data: scienceData,
+//     isLoading: loadingScience,
+//     error: errorScience,
+//   } = useGetScienceArticlesQuery({ search });
 
-  const {
-    data: spaceData,
-    isLoading: loadingSpace,
-    error: errorSpace,
-  } = useGetSpaceArticlesQuery({ search });
-const {
-    data: spaceImagesByDate,
-    isLoading: loadingSpaceImagesByDate,
-    error: errorSpaceImagesByDate,
-  } = useGetSpaceImagesByDatesQuery({ search });
+//   const {
+//     data: spaceData,
+//     isLoading: loadingSpace,
+//     error: errorSpace,
+//   } = useGetSpaceArticlesQuery({ search });
+// const {
+//     data: spaceImagesByDate,
+//     isLoading: loadingSpaceImagesByDate,
+//     error: errorSpaceImagesByDate,
+//   } = useGetSpaceImagesByDatesQuery({ search });
 
-  const handleSearch = async () => {
+  // const {
+  //   data: currentsData,
+  //   isLoading: loadingCurrents,
+  //   error: errorCurrents,
+  // } = useGetLatestNewsQuery({ search });
 
-  };
+  // const handleSearch = async () => {
+
+  // };
 
 // normalize data shape for filter function?
 // implement .filter based on the input of user (onclick for search - immediate search later
@@ -44,18 +51,18 @@ const {
 
 
 
-    return (
-        <>
-            <div className="searchbar-container">
-                <div className="input-wrapper">
-                    <FaSearch id="searchIcon"/>
-                    <input 
-                      placeholder="Type to search..." 
-                      value={input} 
-                      onChange={(e) => setInput(e.target.value)}
-                    />
-                </div>
-            </div>
-        </>
-    );
-};
+//     return (
+//         <>
+//             <div className="searchbar-container">
+//                 <div className="input-wrapper">
+//                     <FaSearch id="searchIcon"/>
+//                     <input 
+//                       placeholder="Type to search..." 
+//                       value={input} 
+//                       onChange={(e) => setInput(e.target.value)}
+//                     />
+//                 </div>
+//             </div>
+//         </>
+//     );
+// };

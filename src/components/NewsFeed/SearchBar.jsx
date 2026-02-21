@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useGetScienceArticlesQuery } from "../../features/feeds/scienceNewsApi.js";
-import { useGetSpaceArticlesQuery } from "../../features/feeds/spaceNewsApi.js";
+// import { useGetScienceArticlesQuery } from "../../features/feeds/scienceNewsApi.js";
+// import { useGetSpaceArticlesQuery } from "../../features/feeds/spaceNewsApi.js";
+import { useGetLatestNewsQuery } from "../../features/feeds/currentsApi.js";
 // import { useGetSpaceImagesQuery } from "../features/feeds/apodApi";
 import "../../styles/feeds.css";
 
@@ -26,8 +27,9 @@ const SearchBar = ({ setSearchResults, setIsSearching }) => {
     currentDate.getDate();
 
   // implement data fetching hooks
-  const scienceQuery = useGetScienceArticlesQuery();
-  const spaceQuery = useGetSpaceArticlesQuery({ page: 1, pageSize: 10 });
+  // const scienceQuery = useGetScienceArticlesQuery();
+  // const spaceQuery = useGetSpaceArticlesQuery({ page: 1, pageSize: 10 });
+  const currentsQuery = useGetLatestNewsQuery();
   //   const apodQuery = useGetSpaceImagesQuery({
   //     start_date: startDate,
   //     end_date: endDate,
@@ -43,12 +45,16 @@ const SearchBar = ({ setSearchResults, setIsSearching }) => {
 
     const searchTerm = input.toLowerCase();
 
-    const filteredScienceArticles =
-      scienceQuery.data?.articles?.filter((a) =>
-        a.title?.toLowerCase().includes(searchTerm),
-      ) ?? [];
-    const filteredSpaceArticles =
-      spaceQuery.data?.results?.filter((a) =>
+    // const filteredScienceArticles =
+    //   scienceQuery.data?.articles?.filter((a) =>
+    //     a.title?.toLowerCase().includes(searchTerm),
+    //   ) ?? [];
+    // const filteredSpaceArticles =
+    //   spaceQuery.data?.results?.filter((a) =>
+    //     a.title?.toLowerCase().includes(searchTerm),
+    //   ) ?? [];
+    const filteredCurrentsArticles =
+      currentsQuery.data?.results?.filter((a) =>
         a.title?.toLowerCase().includes(searchTerm),
       ) ?? [];
     // const filteredSpaceImages =
@@ -57,8 +63,9 @@ const SearchBar = ({ setSearchResults, setIsSearching }) => {
     //   ) ?? [];
 
     const combinedResults = [
-      ...filteredScienceArticles,
-      ...filteredSpaceArticles,
+      // ...filteredScienceArticles,
+      // ...filteredSpaceArticles,
+      ...filteredCurrentsArticles,
       //   ...filteredSpaceImages,
     ];
 
@@ -76,7 +83,8 @@ const SearchBar = ({ setSearchResults, setIsSearching }) => {
 
   useEffect(() => {
     handleSearch();
-  }, [input, scienceQuery.data, spaceQuery.data]);
+    // }, [input, scienceQuery.data, spaceQuery.data, currentsQuery.data]);
+  }, [input, currentsQuery.data]);
 
   return (
     <>
