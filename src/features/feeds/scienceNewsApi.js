@@ -1,16 +1,12 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { api } from "../api/baseApi";
 
 const NEWS_API_KEY = import.meta.env.NEWS_API_KEY;
 
-export const scienceNewsApi = createApi({
-  reducerPath: "scienceNewsApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: "https://newsapi.org/v2/",
-  }),
+export const scienceNewsApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getScienceArticles: builder.query({
       query: ({ search = "", pageSize = 100 } = {}) => ({
-        url: "everything",
+        url: "science-news",
         params: {
           q: search || "science OR scientific",
           language: "en",

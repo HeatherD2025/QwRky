@@ -1,10 +1,6 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { api } from "../api/baseApi";
 
-export const spaceNewsApi = createApi({
-  reducerPath: 'spaceNewsApi',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api.spaceflightnewsapi.net/v4/',
-  }),
+export const spaceNewsApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getSpaceArticles: builder.query({
     query: ({ page = 1, pageSize = 10 } = {}) => 

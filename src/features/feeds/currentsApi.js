@@ -1,10 +1,6 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { api } from "../api/baseApi";
 
-export const currentsApi = createApi({
-  reducerPath: "currentsApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: "/.netlify/functions",
-  }),
+export const currentsApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getLatestNews: builder.query({
       query: ({
